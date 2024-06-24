@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <!-- Seu CSS aqui -->
+  </head>
+  <body>
+    <video id="videoPlayer" controls autoplay>
+      <source src="foregner.webm" type="video/webm">
+      <source src="rem.webm" type="video/webm">
+      <source src="kiss.webm" type="video/webm">
+      <source src="video12" type="video/webm">
+      <!-- Adicione mais sources para outros vídeos -->
+    </video>
+
+    <script>
+      const videoPlayer = document.getElementById('videoPlayer');
+      const videos = ['foregner.webm', 'rem.webm' , 'kiss.webm' ,]; // Adicione mais URLs de vídeos aqui
+      let currentVideoIndex = 0;
+
+      videoPlayer.addEventListener('ended', () => {
+        currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+        videoPlayer.src = videos[currentVideoIndex];
+        videoPlayer.play();
+      });
+    </script>
+  </body>
+</html>
